@@ -1,34 +1,32 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import style from './Statistics.module.css'
 
-const Statistics = props => {
+import Template from './Template'
+import statistic from '../../database/statistical-data.json'
+console.log(statistic.label)
+
+
+const colors = ['purple','rebeccapurple','tomato', 'violet', 'royalblue']
+
+const Statistics = ({title}) => {
+
     return (
-        <section className="statistics">
-            <h2 className="title">Upload stats</h2>
-            <ul className="stat-list">
-                <li className="item">
-                    <span className="label">.docx</span>
-                    <span className="percentage">4%</span>
-                </li>
-                <li className="item">
-                    <span className="label">.mp3</span>
-                    <span className="percentage">14%</span>
-                </li>
-                <li className="item">
-                    <span className="label">.pdf</span>
-                    <span className="percentage">41%</span>
-                </li>
-                <li className="item">
-                    <span className="label">.mp4</span>
-                    <span className="percentage">12%</span>
-                </li>
+        <section className={style.statistics}>
+
+            {title && <h2 className={style.title}>{title}</h2>}   {/*Рендер по условию*/}
+            
+            <ul className={style.stat__list}>
+
+            {statistic.map((item, idx) => (
+            <Template
+            key={item.id}
+            title={item.label}
+            stats={item.percentage}
+            option={colors[idx]}/>))
+            }
             </ul>
         </section>
     )
-}
-
-Statistics.propTypes = {
-
 }
 
 export default Statistics
