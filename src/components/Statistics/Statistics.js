@@ -3,7 +3,6 @@ import style from './Statistics.module.css'
 
 import Template from './Template'
 import statistic from '../../database/statistical-data.json'
-console.log(statistic.label)
 
 
 const colors = ['purple','rebeccapurple','tomato', 'violet', 'royalblue']
