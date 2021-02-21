@@ -7,6 +7,8 @@
   margin-bottom: 0px;
   margin-left: auto;
   margin-right: auto;
+
+  background-color: lightsteelblue;
 }
 
 .item {
@@ -14,7 +16,18 @@
   align-items: center;
   margin-top: 15px;
   margin-bottom: 15px;
-  background-color: green;
+  background-color: limegreen;
+
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.friend__list :hover,
+.friend__list :focus {
+  color: #e5e5e5;
+  background-color: lightskyblue;
+  cursor: pointer;
 }
 
 .status__online {
