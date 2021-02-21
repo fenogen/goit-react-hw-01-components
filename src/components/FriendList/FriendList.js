@@ -3,19 +3,22 @@ import PropTypes from 'prop-types'
 import style from './FriendList.module.css';
 import FriendListItem from './FriendListItem'
 
-import friends from '../../database/friends.json'
-console.log(friends)
-
-const FriendList = ({friends}) => {
+const FriendList = ({ friends }) => {
     return (
-        <ul class={style.friend__list}>
-            <FriendListItem/>
+        <ul className={style.friend__list}>
+            {friends.map(friend => (
+                <FriendListItem
+                key={friend.id}
+                avatar={friend.avatar}
+                name={friend.name}
+                isOnline={friend.isOnline}
+            />))}
         </ul>
     )
 }
 
 FriendList.propTypes = {
-
+    friends: PropTypes.array
 }
 
 export default FriendList

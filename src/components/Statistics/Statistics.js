@@ -1,13 +1,14 @@
 import React from 'react'
 import style from './Statistics.module.css'
 
+import PropTypes from 'prop-types'
+
 import Template from './Template'
-import statistic from '../../database/statistical-data.json'
 
 
 const colors = ['purple','rebeccapurple','tomato', 'violet', 'royalblue']
 
-const Statistics = ({title}) => {
+const Statistics = ({title, statistic}) => {
 
     return (
         <section className={style.statistics}>
@@ -26,6 +27,11 @@ const Statistics = ({title}) => {
             </ul>
         </section>
     )
+}
+
+Statistics.propTypes = {
+    title: PropTypes.string,
+    statistic: PropTypes.array,
 }
 
 export default Statistics
